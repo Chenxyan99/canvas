@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c1" width="900" height="600"></canvas>
+
+    <script>
+      var c1 = document.getElementById("c1");
+      var ctx = c1.getContext("2d");
+      // arc圆弧
+      ctx.beginPath();
+      ctx.arc(300, 200, 50, 0, Math.PI / 2, true); // (圆心x, 圆心y, 半径, 起始角度, 结束角度, 顺逆时针[默认顺])
+      // ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+
+      // 绘制一张笑脸
+      ctx.beginPath();
+      ctx.arc(75, 75, 50, 0, Math.PI * 2);
+      ctx.moveTo(110, 75);
+      ctx.arc(75, 75, 35, 0, Math.PI);
+      ctx.moveTo(70, 65);
+      ctx.arc(55, 65, 15, 0, Math.PI, true);
+      ctx.moveTo(110, 65);
+      ctx.arc(95, 65, 15, 0, Math.PI, true);
+      ctx.stroke();
+      ctx.closePath();
+    </script>
+  </body>
+</html>
+<style></style>

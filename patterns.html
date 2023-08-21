@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c1" width="900" height="600"></canvas>
+
+    <script>
+      var c1 = document.getElementById("c1");
+      var ctx = c1.getContext("2d");
+
+      // 创建图案样式
+      var img = new Image();
+      img.src = "./awesomeface.png";
+
+      img.onload = function () {
+        // repeat　|　no-repeat　|　repeat-x　|　repeat-y (image or canvas) 
+        var pattern = ctx.createPattern(img, "no-repeat");
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, 900, 600);
+      };
+    </script>
+  </body>
+</html>
+<style></style>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c1" width="900" height="600"></canvas>
+
+    <script>
+      var c1 = document.getElementById("c1");
+      var ctx = c1.getContext("2d");
+
+      let index = 0;
+      function render() {
+        ctx.clearRect(0, 0, 900, 600);
+
+        index++;
+        if (index > 400) index = 0;
+        ctx.moveTo(150, 150);
+        ctx.lineTo(300, 200);
+        ctx.lineTo(400, 150);
+
+        ctx.lineWidth = 1;
+        ctx.lineCap = "square";
+        ctx.lineJoin = "round";
+        ctx.miterLimit = 5;
+        ctx.setLineDash([40, 20]);
+        ctx.lineDashOffset = index;
+        ctx.stroke();
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
+    </script>
+  </body>
+</html>
+<style></style>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c1" width="900" height="600"></canvas>
+
+    <script>
+      var c1 = document.getElementById("c1");
+      var ctx = c1.getContext("2d");
+
+      // 路径
+      ctx.beginPath(); // 动笔
+      ctx.rect(100, 100, 200, 100);
+      ctx.stroke();
+      ctx.closePath(); // 提笔
+
+      // 填充
+      ctx.beginPath();
+      ctx.rect(200, 200, 300, 300);
+      ctx.fill();
+      ctx.closePath();
+
+      let height = 0;
+      let t1 = setInterval(() => {
+        height++;
+        ctx.clearRect(0, 0, c1.clientWidth, height);
+        if (height > c1.clientHeight) {
+          clearInterval(t1);
+        }
+      }, 10);
+    </script>
+  </body>
+</html>
+<style></style>
